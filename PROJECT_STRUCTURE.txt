@@ -1,0 +1,67 @@
+.
+├── .env.example
+├── .github
+│   └── workflows
+├── .gitignore
+├── GETTING_STARTED.md
+├── Makefile
+├── PROJECT_STRUCTURE.txt
+├── PROJECT_SUMMARY.md
+├── README.md
+├── apps
+│   ├── backend
+│   │   ├── .dockerignore
+│   │   ├── Dockerfile
+│   │   ├── alembic
+│   │   │   ├── env.py
+│   │   │   ├── script.py.mako
+│   │   │   └── versions
+│   │   ├── alembic.ini
+│   │   ├── requirements-dev.txt
+│   │   ├── requirements.txt
+│   │   ├── src
+│   │   │   ├── __init__.py
+│   │   │   ├── api
+│   │   │   ├── core
+│   │   │   ├── database
+│   │   │   ├── main.py
+│   │   │   └── shared
+│   │   └── tests
+│   └── frontend
+│       ├── .dockerignore
+│       ├── Dockerfile
+│       ├── next.config.js
+│       ├── package.json
+│       ├── postcss.config.js
+│       ├── public
+│       ├── src
+│       │   ├── app
+│       │   ├── components
+│       │   ├── hooks
+│       │   ├── lib
+│       │   ├── pages
+│       │   ├── store
+│       │   ├── types
+│       │   └── utils
+│       ├── tailwind.config.ts
+│       └── tsconfig.json
+├── docker-compose.yml
+├── docs
+│   ├── QUICKSTART.md
+│   ├── api
+│   │   └── API_GUIDE.md
+│   └── architecture
+│       └── ARCHITECTURE.md
+├── infrastructure
+│   ├── docker
+│   │   └── nginx.conf
+│   └── monitoring
+├── packages
+│   ├── shared
+│   │   ├── types
+│   │   ├── utils
+│   │   └── validation
+│   └── ui-components
+└── scripts
+
+37 directories, 28 files
