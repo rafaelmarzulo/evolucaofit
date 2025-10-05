@@ -64,13 +64,13 @@ async def root():
 
 
 # Include routers
-app.include_router(auth_router, prefix="/api/v1")
-app.include_router(users_router, prefix="/api/v1")
-app.include_router(body_measurements_router, prefix="/api/v1")
-app.include_router(workouts_router, prefix="/api/v1")
-app.include_router(meals_router, prefix="/api/v1")
-app.include_router(goals_router, prefix="/api/v1")
-app.include_router(progress_photos_router, prefix="/api/v1")
+app.include_router(auth_router, prefix="/v1")
+app.include_router(users_router, prefix="/v1")
+app.include_router(body_measurements_router, prefix="/v1")
+app.include_router(workouts_router, prefix="/v1")
+app.include_router(meals_router, prefix="/v1")
+app.include_router(goals_router, prefix="/v1")
+app.include_router(progress_photos_router, prefix="/v1")
 
 
 # Startup event
