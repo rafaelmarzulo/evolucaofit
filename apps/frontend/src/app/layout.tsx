@@ -6,8 +6,14 @@ import { Providers } from './providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'FitnessTracker - Acompanhe sua evolução',
+  title: 'EvolucaoFit - Acompanhe sua evolução',
   description: 'Sistema de acompanhamento de evolução física',
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-touch-icon.png',
+  },
+  manifest: '/site.webmanifest',
+  themeColor: '#0891b2',
 }
 
 export default function RootLayout({
@@ -17,6 +23,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="pt-BR">
+      <head>
+        <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+      </head>
       <body className={inter.className}>
         <Providers>{children}</Providers>
       </body>

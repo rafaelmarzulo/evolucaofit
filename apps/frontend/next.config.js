@@ -9,7 +9,7 @@ const nextConfig = {
         protocol: 'http',
         hostname: 'localhost',
         port: '9000',
-        pathname: '/fitness-tracker/**',
+        pathname: '/evolucaofit/**',
       },
     ],
   },
