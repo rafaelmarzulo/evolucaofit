@@ -26,10 +26,16 @@ jobs:
     source_dir: apps/backend
     instance_size_slug: apps-s-1vcpu-1gb
     instance_count: 1
-    run_command: alembic upgrade head
+    run_command: bash migrate.sh
     envs:
       - key: DATABASE_URL
         value: ${evolucaofit-db.DATABASE_URL}
+        scope: RUN_TIME
+      - key: JWT_SECRET_KEY
+        value: cOz9q0piDMoZePBjc0IBZjokKaiTL0olMWHDEu8KQqo
+        scope: RUN_TIME
+      - key: ENVIRONMENT
+        value: production
         scope: RUN_TIME
 
 services:
