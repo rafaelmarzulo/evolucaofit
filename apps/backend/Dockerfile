@@ -25,14 +25,15 @@ COPY requirements.txt .
 # Install Python dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Copy entrypoint script first
+COPY entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
 # Copy application code
 COPY . .
 
-# Copy entrypoint script
-COPY entrypoint.sh /entrypoint.sh
-
-# Make entrypoint executable and change ownership
-RUN chmod +x /entrypoint.sh && chown -R appuser:appuser /app
+# Change ownership
+RUN chown -R appuser:appuser /app
 
 # Switch to non-root user
 USER appuser
