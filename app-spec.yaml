@@ -15,6 +15,23 @@ databases:
     production: false
     cluster_name: evolucaofit-db-cluster
 
+jobs:
+  - name: db-migrate
+    kind: PRE_DEPLOY
+    github:
+      repo: rafaelmarzulo/evolucaofit
+      branch: main
+      deploy_on_push: true
+    dockerfile_path: apps/backend/Dockerfile
+    source_dir: apps/backend
+    instance_size_slug: apps-s-1vcpu-1gb
+    instance_count: 1
+    run_command: alembic upgrade head
+    envs:
+      - key: DATABASE_URL
+        value: ${evolucaofit-db.DATABASE_URL}
+        scope: RUN_TIME
+
 services:
   - name: evolucaofit-apps-backend
     github:
