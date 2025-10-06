@@ -26,7 +26,7 @@ jobs:
     source_dir: apps/backend
     instance_size_slug: apps-s-1vcpu-1gb
     instance_count: 1
-    run_command: sh -c "cd /app && alembic upgrade head"
+    run_command: python3 run_migrations.py
     envs:
       - key: DATABASE_URL
         value: ${evolucaofit-db.DATABASE_URL}
