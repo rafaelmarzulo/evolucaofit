@@ -79,10 +79,9 @@ async def startup_event():
     """Initialize application on startup."""
     logger.info("Starting EvolucaoFit API", version=settings.APP_VERSION)
 
-    # Initialize database
-    if settings.ENVIRONMENT == "development":
-        logger.info("Initializing database tables...")
-        init_db()
+    # Initialize database tables
+    logger.info("Initializing database tables...")
+    init_db()
 
 
 # Shutdown event
