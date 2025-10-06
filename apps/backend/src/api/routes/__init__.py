@@ -6,6 +6,7 @@ from .workouts import router as workouts_router
 from .meals import router as meals_router
 from .goals import router as goals_router
 from .progress_photos import router as progress_photos_router
+from .admin import router as admin_router
 
 __all__ = [
     "auth_router",
@@ -15,4 +16,5 @@ __all__ = [
     "meals_router",
     "goals_router",
     "progress_photos_router",
+    "admin_router",
 ]

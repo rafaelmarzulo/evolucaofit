@@ -15,7 +15,8 @@ from .api.routes import (
     workouts_router,
     meals_router,
     goals_router,
-    progress_photos_router
+    progress_photos_router,
+    admin_router
 )
 
 settings = get_settings()
@@ -71,6 +72,7 @@ app.include_router(workouts_router, prefix="/v1")
 app.include_router(meals_router, prefix="/v1")
 app.include_router(goals_router, prefix="/v1")
 app.include_router(progress_photos_router, prefix="/v1")
+app.include_router(admin_router, prefix="/v1")
 
 
 # Startup event
