@@ -50,7 +50,7 @@ export default function NutritionPage() {
     const token = localStorage.getItem('token')
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/meals/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/meals/`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -90,7 +90,7 @@ export default function NutritionPage() {
     if (formData.notes) payload.notes = formData.notes
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/meals/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/meals/`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -134,7 +134,7 @@ export default function NutritionPage() {
     const token = localStorage.getItem('token')
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/meals/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/meals/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

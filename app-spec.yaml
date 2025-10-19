@@ -72,13 +72,17 @@ ingress:
   rules:
     - match:
         path:
-          prefix: /api/v1
+          prefix: /v1
       component:
         name: evolucaofit-apps-backend
-        rewrite: /v1
     - match:
         path:
           prefix: /docs
+      component:
+        name: evolucaofit-apps-backend
+    - match:
+        path:
+          prefix: /health
       component:
         name: evolucaofit-apps-backend
     - match:
