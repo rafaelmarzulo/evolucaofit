@@ -9,6 +9,11 @@ from .config import get_settings
 
 settings = get_settings()
 
+# Debug: Log DATABASE_URL (masking password)
+import re
+masked_url = re.sub(r'://([^:]+):([^@]+)@', r'://\1:***@', settings.DATABASE_URL)
+print(f"[DEBUG] DATABASE_URL: {masked_url}")
+
 # Create engine
 engine = create_engine(
     settings.DATABASE_URL,
