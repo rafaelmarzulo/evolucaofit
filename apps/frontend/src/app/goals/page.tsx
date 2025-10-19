@@ -52,7 +52,7 @@ export default function GoalsPage() {
     const token = localStorage.getItem('token')
 
     try {
-      let url = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/goals/`
+      let url = `${process.env.NEXT_PUBLIC_API_URL}/v1/goals/`
       const params = new URLSearchParams()
 
       if (filter === 'active') params.append('is_active', 'true')
@@ -99,7 +99,7 @@ export default function GoalsPage() {
     if (formData.notes) payload.notes = formData.notes
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/goals/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/goals/`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -142,7 +142,7 @@ export default function GoalsPage() {
     const token = localStorage.getItem('token')
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/goals/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/goals/${id}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -170,7 +170,7 @@ export default function GoalsPage() {
     const token = localStorage.getItem('token')
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/goals/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/goals/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

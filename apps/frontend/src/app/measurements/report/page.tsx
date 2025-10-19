@@ -50,7 +50,7 @@ export default function MeasurementsReportPage() {
     }
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/measurements/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/measurements/`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
