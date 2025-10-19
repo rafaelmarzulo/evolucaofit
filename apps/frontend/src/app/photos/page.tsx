@@ -41,7 +41,7 @@ export default function PhotosPage() {
     const token = localStorage.getItem('token')
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/progress-photos/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/progress-photos/`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -85,7 +85,7 @@ export default function PhotosPage() {
     if (formData.notes) form.append('notes', formData.notes)
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/progress-photos/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/progress-photos/`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -121,7 +121,7 @@ export default function PhotosPage() {
     const token = localStorage.getItem('token')
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/progress-photos/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/progress-photos/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

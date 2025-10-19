@@ -62,7 +62,7 @@ export default function MeasurementsPage() {
     const token = localStorage.getItem('token')
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/measurements/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/measurements/`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -109,7 +109,7 @@ export default function MeasurementsPage() {
     if (formData.notes) payload.notes = formData.notes
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/measurements/`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/measurements/`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -159,7 +159,7 @@ export default function MeasurementsPage() {
     const token = localStorage.getItem('token')
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/measurements/${id}`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/measurements/${id}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`,

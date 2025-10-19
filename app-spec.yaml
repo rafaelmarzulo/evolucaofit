@@ -8,13 +8,6 @@ alerts:
 features:
   - buildpack-stack=ubuntu-22
 
-databases:
-  - name: evolucaofit-db
-    engine: PG
-    version: "16"
-    production: false
-    cluster_name: evolucaofit-db-cluster
-
 services:
   - name: evolucaofit-apps-backend
     github:
@@ -39,11 +32,11 @@ services:
       - key: DEBUG
         value: "false"
       - key: DATABASE_URL
-        value: ${evolucaofit-db.DATABASE_URL}
         scope: RUN_AND_BUILD_TIME
+        type: SECRET
       - key: JWT_SECRET_KEY
-        value: cOz9q0piDMoZePBjc0IBZjokKaiTL0olMWHDEu8KQqo
         scope: RUN_AND_BUILD_TIME
+        type: SECRET
       - key: JWT_ALGORITHM
         value: HS256
       - key: ACCESS_TOKEN_EXPIRE_MINUTES
@@ -79,9 +72,10 @@ ingress:
   rules:
     - match:
         path:
-          prefix: /api
+          prefix: /api/v1
       component:
         name: evolucaofit-apps-backend
+        rewrite: /v1
     - match:
         path:
           prefix: /docs

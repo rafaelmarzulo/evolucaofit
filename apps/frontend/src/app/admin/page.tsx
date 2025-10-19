@@ -36,7 +36,7 @@ export default function AdminPage() {
 
     try {
       // Verificar se é admin
-      const meResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/users/me`, {
+      const meResponse = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/me`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },
@@ -67,7 +67,7 @@ export default function AdminPage() {
     const token = localStorage.getItem('token')
 
     try {
-      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/v1/users/admin/all`, {
+      const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/admin/all`, {
         headers: {
           'Authorization': `Bearer ${token}`,
         },

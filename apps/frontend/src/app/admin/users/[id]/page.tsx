@@ -68,7 +68,7 @@ export default function AdminUserDetailPage() {
 
     try {
       const response = await fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/v1/users/admin/users/${userId}/measurements`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/v1/users/admin/users/${userId}/measurements`,
         {
           headers: {
             'Authorization': `Bearer ${token}`,
