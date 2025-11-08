@@ -1,71 +1,459 @@
-# Environment variables
+# =============================================================================
+# EvolucaoFit - Security-First .gitignore
+# =============================================================================
+# Zero Trust Architecture - Deny by default, allow explicitly
+# Generated following CIS Benchmarks and OWASP guidelines
+# =============================================================================
+
+# =============================================================================
+# CRITICAL SECURITY - P0 (Never commit these!)
+# =============================================================================
+
+# SSL/TLS Certificates & Keys
+*.pem
+*.key
+*.crt
+*.cer
+*.p12
+*.pfx
+*.jks
+*.keystore
+*.truststore
+*.der
+*.ca-bundle
+*.cacert
+
+# SSH Keys
+id_rsa
+id_dsa
+id_ecdsa
+id_ed25519
+*.ppk
+authorized_keys
+known_hosts
+
+# Database Backups & Dumps
+*.sql
+*.dump
+*.backup
+*.bak
+*.psql
+*.mysql
+*.pg_dump
+backups/
+dumps/
+*.db-journal
+*.db-shm
+*.db-wal
+
+# =============================================================================
+# SECRETS & CREDENTIALS - P1
+# =============================================================================
+
+# Environment Files
 .env
 .env.local
 .env.*.local
+.env.development
+.env.production
+.env.staging
+.env.test
+.env*.backup
+.envrc
+.flaskenv
 
-# Python
+# Secrets & Credentials
+secrets/
+credentials/
+*.credentials
+*.secret
+.secrets/
+vault.json
+keyfile.json
+service-account*.json
+
+# API Tokens & Keys
+.api-key
+.token
+*.token
+api-keys/
+.gcp-key.json
+.aws-credentials
+
+# Password Files
+.password
+.passwd
+passwords.txt
+credentials.txt
+
+# =============================================================================
+# PYTHON
+# =============================================================================
+
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
 *.so
+
+# Distribution / packaging
 .Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
 venv/
 env/
 ENV/
 .venv
-pip-log.txt
-pip-delete-this-directory.txt
+.virtualenv
+virtualenv/
+pipenv/
+poetry.lock
+
+# Testing
 .pytest_cache/
 .coverage
+.coverage.*
 htmlcov/
-*.egg-info/
-dist/
-build/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
 
-# Node.js
+# Profiling
+.profiling/
+*.prof
+*.pprof
+*.trace
+flamegraph*.svg
+
+# MyPy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre & Pytype
+.pyre/
+.pytype/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# =============================================================================
+# NODE.JS & JAVASCRIPT
+# =============================================================================
+
+# Dependencies
 node_modules/
+jspm_packages/
+bower_components/
+
+# Logs
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+lerna-debug.log*
 .pnpm-debug.log*
+
+# Next.js
 .next/
 out/
 .turbo/
+.vercel
 
-# IDEs
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-.DS_Store
-
-# Claude Code
-.claude/
-.claude_history
-
-# Docker
-.docker-data/
-docker-compose.override.yml
-
-# Database
-*.db
-*.sqlite
-*.sqlite3
-
-# Logs
-logs/
-*.log
+# Production builds
+build/
+dist/
 
 # Testing
 coverage/
 .nyc_output/
 
-# Build artifacts
+# Misc
+.eslintcache
+.parcel-cache
+
+# =============================================================================
+# DOCKER & CONTAINERS
+# =============================================================================
+
+.docker-data/
+docker-data/
+docker-volumes/
+.docker-volumes/
+docker-compose.override.yml
+docker-compose.*.yml
+!docker-compose.yml
+!docker-compose.prod.yml
+Dockerfile.local
+.dockerignore.local
+
+# =============================================================================
+# DATABASE FILES
+# =============================================================================
+
+*.db
+*.sqlite
+*.sqlite3
+*.db3
+pgdata/
+mysql-data/
+postgres-data/
+mongodb-data/
+redis-data/
+
+# Database Sessions
+*.session
+sessions/
+
+# =============================================================================
+# INFRASTRUCTURE AS CODE
+# =============================================================================
+
+# Terraform
+*.tfstate
+*.tfstate.backup
+*.tfvars
+*.tfplan
+.terraform/
+.terraform.lock.hcl
+terraform.rc
+crash.log
+override.tf
+override.tf.json
+*_override.tf
+*_override.tf.json
+
+# Kubernetes
+kubeconfig
+*.kubeconfig
+kube-config
+secrets.yaml
+secret.yaml
+*-secret.yaml
+*-secrets.yaml
+
+# Ansible
+*.retry
+.vault_pass
+vault_password
+ansible_vault_password
+.ansible/
+
+# Helm
+values.local.yaml
+values.*.local.yaml
+
+# =============================================================================
+# IDEs & EDITORS
+# =============================================================================
+
+# VSCode
+.vscode/
+*.code-workspace
+
+# JetBrains IDEs
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Vim
+*.swp
+*.swo
+*~
+.*.sw[a-z]
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+auto-save-list
+tramp
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# =============================================================================
+# CLAUDE CODE & AI ASSISTANTS
+# =============================================================================
+
+.claude/
+.claude_history
+.cursor/
+.github-copilot/
+.aider/
+
+# =============================================================================
+# OPERATING SYSTEMS
+# =============================================================================
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+*.stackdump
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# Linux
+.fuse_hidden*
+.directory
+.Trash-*
+.nfs*
+
+# =============================================================================
+# LOGS & MONITORING
+# =============================================================================
+
+logs/
+*.log
+log/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+lerna-debug.log*
+pnpm-debug.log*
+
+# Monitoring data
+monitoring-data/
+metrics/
+traces/
+
+# =============================================================================
+# TESTING
+# =============================================================================
+
+# Test output
+test-results/
+test-output/
+junit.xml
+*.junit.xml
+
+# E2E Testing
+playwright-report/
+test-results/
+screenshots/
+videos/
+
+# Load Testing
+*.jmx.log
+*.jtl
+
+# =============================================================================
+# BUILD ARTIFACTS
+# =============================================================================
+
 *.tar.gz
 *.zip
+*.rar
+*.7z
+*.iso
+*.dmg
+*.pkg
+*.deb
+*.rpm
+
+# =============================================================================
+# APPLICATION SPECIFIC
+# =============================================================================
+
+# File Uploads
+uploads/
+user-uploads/
+public/uploads/
+static/uploads/
+media/user-uploads/
 
 # Temporary files
 tmp/
 temp/
 *.tmp
+*.temp
+.cache/
+
+# CI/CD
+.build/
+.deploy/
+deployment-config.json
+deployment.yaml.local
+.gitlab-ci-local/
+
+# =============================================================================
+# BACKUP FILES
+# =============================================================================
+
+*.bak
+*.backup
+*.old
+*.orig
+*~
+*.swp
+*.swo
+
+# =============================================================================
+# SECURITY SCANNING
+# =============================================================================
+
+.trivy/
+.snyk
+security-scan-results/
+vulnerability-reports/
+
+# =============================================================================
+# EXCLUDE IMPORTANT FILES (Whitelist)
+# =============================================================================
+
+# Keep example files
+!.env.example
+!docker-compose.example.yml
+!config.example.json
+
+# Keep documentation
+!README.md
+!CHANGELOG.md
+!CONTRIBUTING.md
+!LICENSE
+
+# Keep CI/CD configs
+!.github/
+!.gitlab-ci.yml
+!Jenkinsfile
+
+# =============================================================================
+# END OF SECURITY-FIRST .gitignore
+# =============================================================================
