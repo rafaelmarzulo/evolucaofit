@@ -40,6 +40,10 @@ out/
 *~
 .DS_Store
 
+# Claude Code
+.claude/
+.claude_history
+
 # Docker
 .docker-data/
 docker-compose.override.yml
