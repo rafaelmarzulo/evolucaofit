@@ -1,19 +1,24 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import Logo from './Logo'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   return (
     <nav className="bg-black/90 backdrop-blur-lg border-b border-gray-800 shadow-lg sticky top-0 z-50">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <div className="group">
-            <Logo size="sm" href="/" className="group-hover:scale-105 transition-transform duration-300" />
+          <div className="flex items-center">
+            <Logo size="sm" href="/" className="hover:scale-105 transition-transform duration-300" />
           </div>
 
           {/* Desktop Menu */}
@@ -57,33 +62,33 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Menu */}
-        {isOpen && (
-          <div className="md:hidden pb-4 animate-slide-down">
-            <div className="flex flex-col space-y-3">
-              <Link
-                href="/dashboard"
-                className="text-gray-300 hover:text-white transition-colors font-medium py-2 px-4 hover:bg-gray-800 rounded-lg"
-                onClick={() => setIsOpen(false)}
-              >
-                Dashboard
-              </Link>
-              <Link
-                href="/auth/login"
-                className="text-gray-300 hover:text-white transition-colors font-medium py-2 px-4 hover:bg-gray-800 rounded-lg"
-                onClick={() => setIsOpen(false)}
-              >
-                Entrar
-              </Link>
-              <Link
-                href="/auth/register"
-                className="text-center px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold hover:from-blue-500 hover:to-cyan-500 transition-all shadow-lg shadow-blue-500/30"
-                onClick={() => setIsOpen(false)}
-              >
-                Cadastrar
-              </Link>
-            </div>
+        <div className={`md:hidden overflow-hidden transition-all duration-300 ${
+          isOpen && mounted ? 'max-h-64 pb-4' : 'max-h-0'
+        }`}>
+          <div className="flex flex-col space-y-3">
+            <Link
+              href="/dashboard"
+              className="text-gray-300 hover:text-white transition-colors font-medium py-2 px-4 hover:bg-gray-800 rounded-lg"
+              onClick={() => setIsOpen(false)}
+            >
+              Dashboard
+            </Link>
+            <Link
+              href="/auth/login"
+              className="text-gray-300 hover:text-white transition-colors font-medium py-2 px-4 hover:bg-gray-800 rounded-lg"
+              onClick={() => setIsOpen(false)}
+            >
+              Entrar
+            </Link>
+            <Link
+              href="/auth/register"
+              className="text-center px-6 py-2 bg-gradient-to-r from-blue-600 to-cyan-600 text-white rounded-lg font-semibold hover:from-blue-500 hover:to-cyan-500 transition-all shadow-lg shadow-blue-500/30"
+              onClick={() => setIsOpen(false)}
+            >
+              Cadastrar
+            </Link>
           </div>
-        )}
+        </div>
       </div>
     </nav>
   )
